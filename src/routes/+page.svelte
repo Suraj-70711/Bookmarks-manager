@@ -98,6 +98,12 @@
 </header>
 
 <div class="grid grid-cols-1 gap-4 px-4 py-2 md:grid-cols-3">
+	{#if !$linkStore.length}
+		<div transition:blur={{delay: 400}} class="flex flex-col absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-10">
+			<img class="h-48 opacity-80" src="/sad_cat.png" alt="Sad Cat">
+			<span class="text-lg font-semibold text-slate-400">Ooops! You don't have any item yet!!</span>
+		</div>
+	{/if}
 	{#each $linkStore as link (link.id)}
 		{@render linkItem(link)}
 	{/each}
